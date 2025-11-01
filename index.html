@@ -1,37 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tesla Style Auth Page</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+  }
+
+  body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  header {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-size: 22px;
+  }
+
+  .auth-container {
+    width: 360px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  h2 {
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background: #f9f9f9;
+  }
+
+  input:focus {
+    border-color: #3e6ae1; /* Blue Tesla tone */
+    outline: none;
+    background: #fff;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .primary-btn {
+    background: #3e6ae1;
+    color: white;
+  }
+
+  .primary-btn:hover {
+    background: #3458b8;
+  }
+
+  .secondary-btn {
+    background: #f2f2f2;
+    color: #000;
+  }
+
+  .secondary-btn:hover {
+    background: #e6e6e6;
+  }
+
+  .link {
+    display: inline-block;
+    color: #333;
+    font-size: 14px;
+    margin: 15px 0;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #aaa;
+    font-size: 13px;
+    margin: 20px 0;
+  }
+
+  .divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+  }
+
+  .divider::before {
+    margin-right: 10px;
+  }
+
+  .divider::after {
+    margin-left: 10px;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+  }
+
+  footer a {
+    color: #333;
+    margin: 0 5px;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
-    <div class="auth-container">
-  <div class="tabs">
-    <button class="tab-btn active" data-target="#login">Login</button>
-    <button class="tab-btn" data-target="#signup">Sign Up</button>
-  </div>
 
-  <form id="login" class="auth-form active" action="/login" method="post">
-    <h2>Login</h2>
-    <label for="login-email">Email</label>
-    <input type="email" id="login-email" name="email" required autocomplete="email" />
-    <label for="login-password">Password</label>
-    <input type="password" id="login-password" name="password" required autocomplete="current-password" />
-    <button type="submit">Sign In</button>
-    <p class="alt-option">Don’t have an account? <a href="#" class="switch-tab" data-target="#signup">Sign Up</a></p>
-  </form>
+<header>ZIPPTECH</header>
 
-  <form id="signup" class="auth-form" action="/signup" method="post">
-    <h2>Sign Up</h2>
-    <label for="signup-email">Email</label>
-    <input type="email" id="signup-email" name="email" required autocomplete="email" />
-    <label for="signup-password">Password</label>
-    <input type="password" id="signup-password" name="password" required autocomplete="new-password" />
-    <button type="submit">Create Account</button>
-    <p class="alt-option">Already have an account? <a href="#" class="switch-tab" data-target="#login">Login</a></p>
+<div class="auth-container" id="loginForm">
+  <h2>Sign In</h2>
+  <form>
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit" class="primary-btn">Next</button>
+    <div class="link">Trouble Signing In?</div>
+    <div class="divider">Or</div>
+    <button type="button" class="secondary-btn" onclick="showSignUp()">Create Account</button>
   </form>
 </div>
+
+<div class="auth-container" id="signupForm" style="display:none;">
+  <h2>Create Account</h2>
+  <form>
+    <label>Full Name</label>
+    <input type="text" placeholder="Your name" required>
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+    <label>Password</label>
+    <input type="password" placeholder="Create a password" required>
+    <button type="submit" class="primary-btn">Create Account</button>
+    <div class="divider">Or</div>
+    <button type="button" class="secondary-btn" onclick="showLogin()">Back to Sign In</button>
+  </form>
+</div>
+
+<footer>
+  <p>ZippTech © 2025  <a href="#">Privacy & Legal</a>  <a href="#">Contact</a></p>
+</footer>
+
+<script>
+function showSignUp() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'block';
+}
+
+function showLogin() {
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'block';
+}
+</script>
 
 </body>
 </html>

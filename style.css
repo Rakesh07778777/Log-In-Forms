@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #111; /* dark tone */
+  color: #eee;
+}
+.auth-container {
+  width: 380px;
+  max-width: 90%;
+  margin: 80px auto;
+  padding: 40px;
+  background: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+.tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 16px;
+}
+.tab-btn.active {
+  color: #fff;
+  border-bottom: 2px solid #e82127; /* accent red like Tesla red */
+}
+.auth-form {
+  display: none;
+}
+.auth-form.active {
+  display: block;
+}
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+}
+.auth-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  background: #2b2b2b;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #eee;
+}
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  background: #e82127;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.auth-form .alt-option {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+  color: #999;
+}
+.auth-form .alt-option a {
+  color: #e82127;
+  text-decoration: none;
+}
