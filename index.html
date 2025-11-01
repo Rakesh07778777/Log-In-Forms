@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="auth-container">
+  <div class="tabs">
+    <button class="tab-btn active" data-target="#login">Login</button>
+    <button class="tab-btn" data-target="#signup">Sign Up</button>
+  </div>
+
+  <form id="login" class="auth-form active" action="/login" method="post">
+    <h2>Login</h2>
+    <label for="login-email">Email</label>
+    <input type="email" id="login-email" name="email" required autocomplete="email" />
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" name="password" required autocomplete="current-password" />
+    <button type="submit">Sign In</button>
+    <p class="alt-option">Don’t have an account? <a href="#" class="switch-tab" data-target="#signup">Sign Up</a></p>
+  </form>
+
+  <form id="signup" class="auth-form" action="/signup" method="post">
+    <h2>Sign Up</h2>
+    <label for="signup-email">Email</label>
+    <input type="email" id="signup-email" name="email" required autocomplete="email" />
+    <label for="signup-password">Password</label>
+    <input type="password" id="signup-password" name="password" required autocomplete="new-password" />
+    <button type="submit">Create Account</button>
+    <p class="alt-option">Already have an account? <a href="#" class="switch-tab" data-target="#login">Login</a></p>
+  </form>
+</div>
+
+</body>
+</html>
