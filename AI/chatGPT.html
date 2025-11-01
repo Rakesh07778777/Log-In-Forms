@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #b0634c, #d08a63);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #f8f8f8;
+      border-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      width: 900px;
+      max-width: 95%;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+      flex: 1;
+      padding: 50px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-container h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .form-container p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-container input:focus {
+      border-color: #a77265;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input {
+      padding-right: 40px;
+    }
+
+    .password-container span {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      color: #777;
+    }
+
+    .forgot {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 25px;
+      cursor: pointer;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      background-color: #9a6560;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8a5a55;
+    }
+
+    .or {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-btn {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-btn img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .image-container {
+      flex: 1;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')
+        no-repeat center center/cover;
+      position: relative;
+    }
+
+    .image-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 1.1rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+      }
+
+      .form-container {
+        padding: 40px 25px;
+      }
+
+      .image-container {
+        height: 250px;
+        border-top: 1px solid #ddd;
+      }
+
+      .image-overlay {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h1>Hello Again!</h1>
+      <p>Let’s get started with your 30 days trial</p>
+
+      <input type="email" placeholder="Email" />
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Password" />
+        <span id="togglePassword">&#128065;</span>
+      </div>
+
+      <div class="forgot">Recovery Password</div>
+
+      <button class="btn">Sign In</button>
+
+      <div class="or">Or continue with</div>
+
+      <div class="social-login">
+        <div class="social-btn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google"></div>
+        <div class="social-btn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg" alt="Apple"></div>
+        <div class="social-btn"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <div class="image-overlay">Finally, all your work in one place.</div>
+    </div>
+  </div>
+
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+    });
+  </script>
+</body>
+</html>
