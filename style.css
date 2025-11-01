@@ -12,8 +12,17 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
   }
 
+  .spline-3d{
+    position: absolute;
+    z-index: -1;
+    min-height: 100vh;
+    height: 780px;
+  }
   header {
     position: absolute;
     top: 30px;
