@@ -1,0 +1,796 @@
+<div class="dripspace-login-container">
+  <div class="dripspace-login-box">
+    <!-- Login Form -->
+    <div class="dripspace-form-panel">
+      <div class="dripspace-form-wrapper">
+
+        <!-- Welcome Text -->
+        <h1 class="dripspace-welcome-title">Welcome back !</h1>
+        <p class="dripspace-welcome-subtitle">Enter to get unlimited access to data & information.</p>
+
+        <!-- Login Form -->
+        <form class="dripspace-login-form" id="loginForm">
+          <!-- Email Input Block -->
+          <div class="login-input-block">
+            <label for="email" class="input-label">Email <span class="required-asterisk">*</span></label>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input-field" 
+              placeholder="Enter your mail address"
+              required
+            >
+          </div>
+
+          <!-- Password Input Block -->
+          <div class="login-input-block">
+            <label for="password" class="input-label">Password <span class="required-asterisk">*</span></label>
+            <div class="password-input-wrapper">
+              <input 
+                type="password" 
+                id="password" 
+                class="form-input-field" 
+                placeholder="Enter password"
+                required
+              >
+              <button type="button" class="password-toggle-btn" id="togglePassword">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div class="form-options-row">
+            <label class="remember-checkbox-wrapper">
+              <input type="checkbox" id="rememberMe" class="checkbox-input">
+              <span class="checkbox-label">Remember me</span>
+            </label>
+            <a href="#" class="forgot-password-link">Forgot your password ?</a>
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit" class="premium-login-btn">Log in</button>
+
+          <!-- Divider -->
+          <div class="login-divider">
+            <span class="divider-text">Or, Login with</span>
+          </div>
+
+          <!-- Google Sign In -->
+          <button type="button" class="google-signin-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Sign up with Google</span>
+          </button>
+
+          <!-- Register Link -->
+          <p class="register-link-text">
+            Don't have an account ? <a href="#" class="register-link">Register here</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Panel - Decorative Graphics (Hidden on mobile) -->
+    <div class="dripspace-graphics-panel">
+      <div class="graphics-container">
+        <img src="https://raw.githubusercontent.com/Rakesh07778777/Drip-Space/main/image%20copy%2051.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Reset and Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Main Container */
+  .dripspace-login-container {
+    display: flex;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #f9fafb;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* Login Box - Contains both form and graphics */
+  .dripspace-login-box {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    height: 90vh;
+    /* border-radius: 16px; */
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    background: #ffffff;
+  }
+
+  /* Login Form Panel */
+  .dripspace-form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 40px 20px; */
+    background: #ffffff;
+  }
+
+  .dripspace-form-wrapper {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* Logo */
+  .dripspace-logo {
+    margin-bottom: 0.8rem ;
+    text-align: center;
+  }
+
+  /* Welcome Text */
+  .dripspace-welcome-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .dripspace-welcome-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  /* Form Styles */
+  .dripspace-login-form {
+    width: 100%;
+  }
+
+  .login-input-block {
+    margin-bottom: 1.2rem;
+  }
+
+  .input-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+
+  .required-asterisk {
+    color: #ef4444;
+  }
+
+  .form-input-field {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-input-field:focus {
+    border-color: #393939;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  .form-input-field::placeholder {
+    color: #9ca3af;
+  }
+
+  /* Password Input Wrapper */
+  .password-input-wrapper {
+    position: relative;
+  }
+
+  .password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+  }
+
+  .password-toggle-btn:hover {
+    color: #6366f1;
+  }
+
+  /* Form Options Row */
+  .form-options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .remember-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .checkbox-input {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+    accent-color: #6366f1;
+  }
+
+  .checkbox-label {
+    font-size: 14px;
+    color: #4b5563;
+  }
+
+  .forgot-password-link {
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .forgot-password-link:hover {
+    color: #4f46e5;
+  }
+
+  /* Login Button */
+  .premium-login-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 24px;
+  }
+
+  .premium-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .premium-login-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Divider */
+  .login-divider {
+    position: relative;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .login-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: #e5e7eb;
+  }
+
+  .divider-text {
+    position: relative;
+    display: inline-block;
+    padding: 0 16px;
+    font-size: 14px;
+    color: #9ca3af;
+    background: #ffffff;
+  }
+
+  /* Google Sign In Button */
+  .google-signin-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 24px;
+  }
+
+  .google-signin-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  /* Register Link */
+  .register-link-text {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+  }
+
+  .register-link {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .register-link:hover {
+    color: #4f46e5;
+  }
+
+  /* Right Panel - Graphics Section */
+  .dripspace-graphics-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #1e1b4b 100%);
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+
+  .graphics-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+  }
+
+  /* Geometric Shapes Base */
+  .shape {
+    position: absolute;
+  }
+
+  /* Large Circle */
+  .shape-circle-large {
+    width: 300px;
+    height: 300px;
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+  }
+
+  /* Medium Circle */
+  .shape-circle-medium {
+    width: 200px;
+    height: 200px;
+    background: rgba(30, 27, 75, 0.6);
+    border-radius: 50%;
+    top: 30%;
+    left: 10%;
+    transform: translateY(-50%);
+  }
+
+  /* Purple Square */
+  .shape-square-purple {
+    width: 150px;
+    height: 150px;
+    background: rgba(124, 58, 237, 0.5);
+    border-radius: 20px;
+    top: 10%;
+    left: 20%;
+  }
+
+  /* Cyan Square */
+  .shape-square-cyan {
+    width: 120px;
+    height: 150px;
+    background: #06b6d4;
+    border-radius: 12px;
+    top: 40%;
+    left: 15%;
+  }
+
+  /* Triangles */
+  .shape-triangle-1 {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid rgba(147, 197, 253, 0.5);
+    top: 20%;
+    left: 40%;
+  }
+
+  .shape-triangle-2 {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid rgba(167, 139, 250, 0.4);
+    top: 25%;
+    left: 45%;
+  }
+
+  .shape-triangle-3 {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid rgba(147, 197, 253, 0.3);
+    top: 30%;
+    left: 50%;
+  }
+
+  /* Star */
+  .shape-star {
+    width: 60px;
+    height: 60px;
+    background: #fbbf24;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    top: 45%;
+    left: 35%;
+  }
+
+  /* Diamonds */
+  .shape-diamond-1 {
+    width: 20px;
+    height: 20px;
+    background: #f97316;
+    transform: rotate(45deg);
+    top: 8%;
+    right: 35%;
+  }
+
+  .shape-diamond-2 {
+    width: 20px;
+    height: 20px;
+    background: #f97316;
+    transform: rotate(45deg);
+    top: 8%;
+    right: 30%;
+  }
+
+  /* Bars */
+  .shape-bars {
+    width: 100px;
+    height: 30px;
+    top: 12%;
+    right: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .shape-bars::before,
+  .shape-bars::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: rgba(147, 197, 253, 0.8);
+  }
+
+  /* Dots */
+  .shape-dots {
+    width: 30px;
+    height: 10px;
+    top: 40%;
+    right: 30%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .shape-dots::before,
+  .shape-dots::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+  }
+
+  /* Waves */
+  .shape-waves {
+    width: 80px;
+    height: 30px;
+    bottom: 25%;
+    left: 25%;
+    border-top: 2px solid rgba(147, 197, 253, 0.5);
+    border-radius: 50%;
+  }
+
+  .shape-waves::before,
+  .shape-waves::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid rgba(147, 197, 253, 0.5);
+    border-radius: 50%;
+  }
+
+  .shape-waves::before {
+    top: 8px;
+  }
+
+  .shape-waves::after {
+    top: 16px;
+  }
+
+  /* Semicircle */
+  .shape-semicircle {
+    width: 80px;
+    height: 40px;
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 100px 100px 0 0;
+    bottom: 15%;
+    right: 15%;
+  }
+
+  /* Grid */
+  .shape-grid {
+    width: 60px;
+    height: 60px;
+    bottom: 25%;
+    right: 10%;
+    background-image: 
+      repeating-linear-gradient(0deg, rgba(6, 182, 212, 0.5) 0px, rgba(6, 182, 212, 0.5) 2px, transparent 2px, transparent 10px),
+      repeating-linear-gradient(90deg, rgba(6, 182, 212, 0.5) 0px, rgba(6, 182, 212, 0.5) 2px, transparent 2px, transparent 10px);
+  }
+
+  /* Arc */
+  .shape-arc {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgba(147, 197, 253, 0.4);
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    top: 60%;
+    left: 5%;
+    transform: rotate(-45deg);
+  }
+
+  /* Bars pattern in top right */
+  .shape-bars {
+    background: linear-gradient(
+      to bottom,
+      rgba(147, 197, 253, 0.8) 0%,
+      rgba(147, 197, 253, 0.8) 20%,
+      transparent 20%,
+      transparent 25%,
+      rgba(147, 197, 253, 0.8) 25%,
+      rgba(147, 197, 253, 0.8) 45%,
+      transparent 45%
+    );
+  }
+
+  /* Responsive Design - Mobile First */
+  @media (max-width: 1024px) {
+    .dripspace-login-box {
+      max-width: 900px;
+      height: 600px;
+    }
+  }
+
+
+
+  @media (max-width: 768px) {
+    .dripspace-login-box {
+      max-width: 700px;
+      height: 500px;
+    }
+    
+    .dripspace-welcome-title {
+      font-size: 28px;
+    }
+
+  .form-input-field {
+    width: 80%;
+  }
+
+  .premium-login-btn {
+    width: 80%;
+    padding: 12px;
+  }
+  .dripspace-graphics-panel{
+    display: none;
+  }
+  }
+
+
+
+  @media (max-width: 600px) {
+    .dripspace-login-container {
+      padding: 0;
+      background: #ffffff;
+      align-items: flex-start;
+    }
+    
+    .dripspace-login-box {
+      flex-direction: column;
+      height: auto;
+      max-width: 100%;
+      box-shadow: none;
+      border-radius: 0;
+      background: #ffffff;
+    }
+    
+    .dripspace-form-panel {
+      padding: 30px 20px;
+      width: 100%;
+      flex: none;
+    }
+    
+    .dripspace-form-wrapper {
+      padding: 20px;
+      max-width: 100%;
+    }
+    
+    .dripspace-graphics-panel {
+      display: none !important;
+      flex: none;
+      height: 0;
+      min-height: 0;
+    }
+    
+    .dripspace-welcome-title {
+      font-size: 26px;
+    }
+    
+    .dripspace-welcome-subtitle {
+      font-size: 13px;
+    }
+    
+    .form-options-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .forgot-password-link {
+      align-self: flex-end;
+    }
+    
+    .premium-login-btn {
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    .dripspace-graphics-panel{
+        display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .dripspace-login-container {
+      padding: 0;
+    }
+    
+    .dripspace-form-panel {
+      padding: 25px 15px;
+    }
+    
+    .dripspace-form-wrapper {
+      padding: 15px;
+    }
+    
+    .dripspace-welcome-title {
+      font-size: 24px;
+    }
+    
+    .dripspace-welcome-subtitle {
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+    
+    .input-label {
+      font-size: 13px;
+    }
+    
+    .form-input-field {
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+    
+    .premium-login-btn {
+      padding: 12px;
+      font-size: 14px;
+    }
+    
+    .google-signin-btn {
+      padding: 10px;
+      font-size: 13px;
+    }
+    
+    .register-link-text {
+      font-size: 13px;
+    }
+
+    .dripspace-graphics-panel{
+        display: none;
+    }
+  }
+</style>
+
+<script>
+  // Password Toggle Functionality
+  const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+
+  togglePassword.addEventListener('click', function() {
+    // Toggle password visibility
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    
+    // Optional: Change icon based on state
+    this.style.color = type === 'text' ? '#6366f1' : '#9ca3af';
+  });
+
+  // Form Validation
+  const loginForm = document.getElementById('loginForm');
+  
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    // Basic validation
+    if (!email || !password) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    
+    // Success - In a real application, this would submit to a server
+    console.log('Login attempt:', { email, password: '***' });
+    alert('Login functionality would be connected to backend here!');
+  });
+
+  // Add focus effects to inputs
+  const inputs = document.querySelectorAll('.form-input-field');
+  
+  inputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.style.transform = 'scale(1.01)';
+      this.parentElement.style.transition = 'transform 0.3s ease';
+    });
+    
+    input.addEventListener('blur', function() {
+      this.parentElement.style.transform = 'scale(1)';
+    });
+  });
+</script>
