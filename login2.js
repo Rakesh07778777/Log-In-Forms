@@ -14,3 +14,20 @@
         togglePass.textContent = '👁️';
       }
     });
+
+
+
+    // Login validation (frontend only)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailValue = email.value.trim();
+      const passValue = password.value.trim();
+
+      if (emailValue === "user@example.com" && passValue === "123456") {
+        errorMsg.style.display = 'none';
+        form.reset();
+        alert("✅ Login Successful!");
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
