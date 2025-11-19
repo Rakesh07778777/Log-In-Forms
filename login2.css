@@ -64,3 +64,26 @@
       border-color: #6e8efb;
       box-shadow: 0 0 5px rgba(110, 142, 251, 0.4);
     }
+
+
+
+    .input-group label {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 14px;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:valid + label {
+      top: 0;
+      left: 10px;
+      font-size: 12px;
+      background: #fff;
+      padding: 0 5px;
+      color: #6e8efb;
+    }
