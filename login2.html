@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login2.css">
+    <title>Log-in form</title>
+</head>
+<body>
+    
+      <div class="login-container">
+    <h2>Welcome Back 👋</h2>
+    <form id="loginForm">
+      <div class="input-group">
+        <input type="email" id="email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" required>
+        <label for="password">Password</label>
+        <span class="show-pass" id="togglePass">👁️</span>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+      <p class="error-msg" id="errorMsg">Invalid email or password!</p>
+    </form>
+  </div>
+
+</body>
+</html>
