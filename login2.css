@@ -27,3 +27,19 @@
       transform: translateY(-30px);
       opacity: 0;
     }
+
+
+
+    @keyframes slideIn {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+      font-weight: 600;
+    }
