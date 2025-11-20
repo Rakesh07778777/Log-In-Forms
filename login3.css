@@ -250,3 +250,15 @@
             background: rgba(34, 197, 94, 0.02);
         }
         
+
+ 
+        @keyframes inputShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Enhanced Password Toggle */
+        .dripspaceNavbar-passwordContainer {
+            position: relative;
+        }
