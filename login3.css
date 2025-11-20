@@ -192,3 +192,14 @@
             margin-bottom: var(--space-lg);
             position: relative;
         }
+
+ .dripspaceNavbar-formLabel {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ds-text-primary);
+            margin-bottom: var(--space-xs);
+            letter-spacing: 0.02em;
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
