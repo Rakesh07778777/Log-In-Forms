@@ -137,3 +137,10 @@
             background: linear-gradient(90deg, transparent, var(--ds-accent-gold), transparent);
             animation: headerLine 2s ease-in-out 0.5s;
         }
+
+        
+        @keyframes headerLine {
+            0% { width: 0; opacity: 0; }
+            100% { width: 60px; opacity: 1; }
+        }
+      
