@@ -703,3 +703,28 @@
             animation: successEntrance 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         
+
+        
+        @keyframes successEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        .dripspaceNavbar-successIcon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            color: var(--ds-success);
+        }
+        
+        .dripspaceNavbar-successText {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
