@@ -728,3 +728,158 @@
             font-weight: 500;
             margin-bottom: var(--space-sm);
         }
+
+
+/* Progressive Enhancement - Mobile */
+        @media (max-width: 480px) {
+            .dripspaceNavbar-premiumLogin {
+                padding: 0;
+            }
+            
+            .dripspaceNavbar-loginContainer {
+                margin: 0;
+                max-width: 100vw;
+                min-height: 100vh;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            .dripspaceNavbar-loginHeader {
+                padding: var(--space-xl) var(--space-md) var(--space-lg);
+            }
+            
+            .dripspaceNavbar-loginLogo {
+                font-size: 32px;
+            }
+            
+            .dripspaceNavbar-loginSubtitle {
+                font-size: 16px;
+            }
+            
+            .dripspaceNavbar-loginForm {
+                padding: 0 var(--space-md) var(--space-xl);
+            }
+            
+            .dripspaceNavbar-formGroup {
+                margin-bottom: var(--space-xl);
+            }
+            
+            .dripspaceNavbar-formLabel {
+                font-size: 15px;
+            }
+            
+            .dripspaceNavbar-formInput {
+                padding: var(--space-sm) var(--space-md);
+                font-size: 16px;
+                min-height: 52px;
+            }
+            
+            .dripspaceNavbar-passwordToggle {
+                min-width: 48px;
+                min-height: 48px;
+                padding: var(--space-sm);
+            }
+            
+            .dripspaceNavbar-passwordToggle svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .dripspaceNavbar-formOptions {
+                flex-direction: column;
+                gap: var(--space-sm);
+                align-items: flex-start;
+                margin-bottom: var(--space-xl);
+            }
+            
+            .dripspaceNavbar-checkboxContainer {
+                padding: var(--space-sm);
+                border-radius: 8px;
+            }
+            
+            .dripspaceNavbar-checkbox {
+                min-width: 48px;
+                min-height: 48px;
+                width: 20px;
+                height: 20px;
+            }
+            
+            .dripspaceNavbar-checkboxLabel {
+                font-size: 15px;
+                padding: var(--space-xs);
+            }
+            
+            .dripspaceNavbar-forgotPassword {
+                font-size: 15px;
+                padding: var(--space-sm);
+                border-radius: 6px;
+            }
+            
+            .dripspaceNavbar-loginButton {
+                min-height: 56px;
+                font-size: 16px;
+                padding: var(--space-md);
+            }
+            
+            .dripspaceNavbar-socialLogin {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            .dripspaceNavbar-socialButton {
+                min-height: 56px;
+                font-size: 15px;
+            }
+            
+            .dripspaceNavbar-signupLink {
+                font-size: 15px;
+                padding: var(--space-sm) 0;
+            }
+            
+            .dripspaceNavbar-signupLink a {
+                padding: var(--space-sm);
+                border-radius: 6px;
+            }
+            
+            .dripspaceNavbar-backToHome {
+                position: static;
+                justify-content: center;
+                margin: var(--space-md) 0;
+                padding: var(--space-sm) var(--space-md);
+                border-bottom: 1px solid var(--ds-border-subtle);
+                border-radius: 0;
+            }
+            
+            .dripspaceNavbar-errorMessage {
+                font-size: 15px;
+                padding: var(--space-sm) var(--space-md);
+                border-radius: 8px;
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+            .dripspaceNavbar-loginContainer {
+                margin: var(--space-sm);
+                max-width: calc(100vw - 2 * var(--space-sm));
+            }
+            
+            .dripspaceNavbar-socialLogin {
+                flex-direction: column;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .dripspaceNavbar-premiumLogin {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: var(--space-lg);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .dripspaceNavbar-loginContainer {
+                max-width: 560px;
+            }
+        }
