@@ -232,3 +232,21 @@
             color: var(--ds-accent-gold);
             transform: translateY(-2px);
         }
+
+
+        .dripspaceNavbar-formInput::placeholder {
+            color: var(--ds-text-secondary);
+            font-weight: 300;
+        }
+        
+        .dripspaceNavbar-formInput.error {
+            border-color: var(--ds-error);
+            background: rgba(220, 38, 38, 0.02);
+            animation: inputShake 0.5s ease-in-out;
+        }
+        
+        .dripspaceNavbar-formInput.success {
+            border-color: var(--ds-success);
+            background: rgba(34, 197, 94, 0.02);
+        }
+        
