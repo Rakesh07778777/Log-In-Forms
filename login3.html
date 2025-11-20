@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login3.css">
+    <title>Document</title>
+</head>
+<body>
+
+ <!-- Enhanced Back to Home Link -->
+    <a href="#" class="dripspaceNavbar-backToHome">
+        <svg class="dripspaceNavbar-backIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Home
+    </a>
+    
+    <!-- Premium Login Container -->
+    <div class="dripspaceNavbar-loginContainer">
+        <!-- Enhanced Login Header -->
+        <div class="dripspaceNavbar-loginHeader">
+            <a href="#" class="dripspaceNavbar-loginLogo">DripSpace</a>
+            <p class="dripspaceNavbar-loginSubtitle">Welcome back to your luxury experience</p>
+        </div>
+        
+        <!-- Enhanced Login Form -->
+        <form class="dripspaceNavbar-loginForm" onsubmit="return false;">
+            <!-- Premium Error Message -->
+            <div class="dripspaceNavbar-errorMessage" id="errorMessage"></div>
+            
+            <!-- Email Field with Enhanced Styling -->
+            <div class="dripspaceNavbar-formGroup">
+                <label for="email" class="dripspaceNavbar-formLabel">Email Address</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="dripspaceNavbar-formInput" 
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+            
+            <!-- Password Field with Enhanced Toggle -->
+            <div class="dripspaceNavbar-formGroup">
+                <label for="password" class="dripspaceNavbar-formLabel">Password</label>
+                <div class="dripspaceNavbar-passwordContainer">
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="dripspaceNavbar-formInput" 
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                    <button type="button" class="dripspaceNavbar-passwordToggle" id="passwordToggle">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 12S5 4 12 4S23 12 23 12S19 20 12 20S1 12 1 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Enhanced Form Options -->
+            <div class="dripspaceNavbar-formOptions">
+                <div class="dripspaceNavbar-checkboxContainer">
+                    <input type="checkbox" id="rememberMe" class="dripspaceNavbar-checkbox">
+                    <label for="rememberMe" class="dripspaceNavbar-checkboxLabel">Remember me</label>
+                </div>
+                <a href="#" class="dripspaceNavbar-forgotPassword">Forgot password?</a>
+            </div>
+            
+            <!-- Premium Login Button -->
+            <button type="submit" class="dripspaceNavbar-loginButton" id="loginButton">
+                Sign In
+            </button>
+            
+            <!-- Premium Divider -->
+            <div class="dripspaceNavbar-divider">
+                <span>or continue with</span>
+            </div>
+            
+            <!-- Enhanced Social Login -->
+            <div class="dripspaceNavbar-socialLogin">
+                <button type="button" class="dripspaceNavbar-socialButton" id="googleLogin">
+                    <svg class="dripspaceNavbar-socialIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25C22.56 11.49 22.51 10.76 22.42 10.05H12V14.52H18.36C18.27 15.24 18.16 15.96 18.16 16.72C18.16 18.12 18.3 19.38 18.48 20.72L21.72 20.72C21.46 21.68 21.11 22.49 20.66 23.21C19.87 24.44 18.84 25.34 17.68 25.98C16.21 26.77 14.66 27.16 13 27.16C9.02 27.16 5.5 24.1 4.05 20.72C3.2 18.66 2.86 16.35 2.86 14.11H2.84C3.05 12.69 3.49 11.33 4.14 10.11C4.95 8.49 6.2 7.08 7.67 6.13C9.1 5.2 10.72 4.69 12.33 4.69C14.64 4.69 16.67 5.53 18.18 6.65C19.11 7.3 19.93 8.1 20.58 9.03C21.22 9.96 21.7 10.99 22 12.07V12.25H22.56Z" fill="#4285F4"/>
+                    </svg>
+                    Google
+                </button>
+                <button type="button" class="dripspaceNavbar-socialButton" id="appleLogin">
+                    <svg class="dripspaceNavbar-socialIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.365 1.43C17.39 1.43 18.47 1.67 19.5 2.12C18.24 2.97 17.47 4.11 16.92 5.5C16.12 5.23 15.23 5.08 14.32 5.08C10.29 5.08 7.26 8.2 7.26 12.02C7.26 12.82 7.34 13.6 7.47 14.36C5.17 14.36 3.19 12.7 2.26 10.35C1.47 8.57 1.76 6.66 2.97 5.15C3.8 4.15 4.89 3.38 6.11 2.93C7.33 2.48 8.61 2.35 9.86 2.53C10.8 2.67 11.72 2.95 12.57 3.35C13.55 2.47 14.91 1.43 16.365 1.43Z" fill="currentColor"/>
+                    </svg>
+                    Apple
+                </button>
+            </div>
+            
+            <!-- Enhanced Sign Up Link -->
+            <div class="dripspaceNavbar-signupLink">
+                Don't have an account? <a href="#" id="signupLink">Create one</a>
+            </div>
+        </form>
+        
+        <!-- Success State (Hidden by default) -->
+        <div class="dripspaceNavbar-successState" id="successState">
+            <svg class="dripspaceNavbar-successIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="dripspaceNavbar-successText">Welcome back!</div>
+            <div>Redirecting to your dashboard...</div>
+        </div>
+    </div>
+    
+    <script src="login3.js"></script>
+</body>
+</html>
