@@ -308,3 +308,28 @@
             border-radius: 6px;
             transition: all 0.3s ease;
         }
+
+
+        .dripspaceNavbar-checkboxContainer:hover {
+            background: rgba(174, 154, 127, 0.05);
+        }
+        
+        .dripspaceNavbar-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--ds-border-subtle);
+            background: var(--ds-bg-surface);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 4px;
+            min-width: 20px;
+            min-height: 20px;
+        }
+        
+        .dripspaceNavbar-checkbox:checked {
+            background: var(--ds-accent-gold);
+            border-color: var(--ds-accent-gold);
+            transform: scale(1.1);
+        }
+        
