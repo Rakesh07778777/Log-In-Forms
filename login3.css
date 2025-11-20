@@ -144,3 +144,22 @@
             100% { width: 60px; opacity: 1; }
         }
       
+
+        .dripspaceNavbar-loginLogo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--ds-text-primary);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
+            display: inline-block;
+            position: relative;
+            background: linear-gradient(135deg, var(--ds-text-primary) 0%, var(--ds-accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+        
