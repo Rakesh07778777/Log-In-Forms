@@ -181,3 +181,14 @@
         @keyframes subtitleFade {
             to { opacity: 1; }
         }
+
+ /* Enhanced Form */
+        .dripspaceNavbar-loginForm {
+            padding: 0 var(--space-xl) var(--space-2xl);
+            flex: 1;
+        }
+        
+        .dripspaceNavbar-formGroup {
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
