@@ -239,3 +239,50 @@
                 }, 3000);
             });
             
+
+            // Enhanced sign up handler
+            document.getElementById('signupLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Navigate to sign up page');
+                // Add smooth transition to sign up page
+            });
+            
+            // Enhanced keyboard navigation
+            form.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
+                    form.dispatchEvent(new Event('submit'));
+                }
+            });
+            
+            // Auto-focus with better UX
+            setTimeout(() => {
+                if (emailInput.value === '') {
+                    emailInput.focus();
+                } else {
+                    passwordInput.focus();
+                }
+            }, 500);
+            
+            // Enhanced form completion suggestions
+            if (emailInput.value === '') {
+                emailInput.placeholder = 'demo@dripspace.com';
+            }
+            if (passwordInput.value === '') {
+                passwordInput.placeholder = 'demospace';
+            }
+            
+            // Add demo credentials helper
+            const demoNote = document.createElement('div');
+            demoNote.style.cssText = `
+                text-align: center;
+                font-size: 12px;
+                color: var(--ds-text-secondary);
+                margin-top: 8px;
+                padding: 8px;
+                background: rgba(174, 154, 127, 0.05);
+                border-radius: 4px;
+                border: 1px solid rgba(174, 154, 127, 0.1);
+            `;
+            demoNote.innerHTML = 'Demo: demo@dripspace.com / demospace';
+            form.appendChild(demoNote);
+        })();
