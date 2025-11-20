@@ -1,4 +1,5 @@
- (function() {
+
+        (function() {
             // Enhanced form elements
             const form = document.querySelector('.dripspaceNavbar-loginForm');
             const emailInput = document.getElementById('email');
@@ -35,5 +36,206 @@
                 setTimeout(() => {
                     passwordToggle.style.transform = 'translateY(-50%) scale(1)';
                 }, 150);
+            });
+            
+            // Enhanced email validation
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            // Enhanced form validation with better UX
+            function validateForm() {
+                const email = emailInput.value.trim();
+                const password = passwordInput.value.trim();
+                
+                // Remove previous states
+                emailInput.classList.remove('error', 'success');
+                passwordInput.classList.remove('error', 'success');
+                
+                let isValid = true;
+                let errorText = '';
+                
+                if (!email) {
+                    emailInput.classList.add('error');
+                    errorText = 'Please enter your email address.';
+                    isValid = false;
+                } else if (!validateEmail(email)) {
+                    emailInput.classList.add('error');
+                    errorText = 'Please enter a valid email address.';
+                    isValid = false;
+                } else {
+                    emailInput.classList.add('success');
+                }
+                
+                if (!password) {
+                    passwordInput.classList.add('error');
+                    if (!errorText) errorText = 'Please enter your password.';
+                    isValid = false;
+                } else if (password.length < 6) {
+                    passwordInput.classList.add('error');
+                    if (!errorText) errorText = 'Password must be at least 6 characters long.';
+                    isValid = false;
+                } else {
+                    passwordInput.classList.add('success');
+                }
+                
+                if (!isValid) {
+                    showError(errorText);
+                } else {
+                    hideError();
+                }
+                
+                return isValid;
+            }
+            
+            // Enhanced error display
+            function showError(message) {
+                errorMessage.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                            <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        ${message}
+                    </div>
+                `;
+                errorMessage.classList.add('show');
+            }
+            
+            function hideError() {
+                errorMessage.classList.remove('show');
+            }
+            
+            // Enhanced real-time validation with better feedback
+            emailInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                
+                if (value && validateEmail(value)) {
+                    this.classList.add('success');
+                    this.classList.remove('error');
+                } else if (value) {
+                    this.classList.add('error');
+                    this.classList.remove('success');
+                } else {
+                    this.classList.remove('error', 'success');
+                }
+                
+                // Auto-hide error when user starts typing valid input
+                if (errorMessage.classList.contains('show') && value && validateEmail(value)) {
+                    setTimeout(() => {
+                        if (emailInput.classList.contains('success')) {
+                            hideError();
+                        }
+                    }, 500);
+                }
+            });
+            
+            passwordInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                
+                if (value.length >= 6) {
+                    this.classList.add('success');
+                    this.classList.remove('error');
+                } else if (value) {
+                    this.classList.add('error');
+                    this.classList.remove('success');
+                } else {
+                    this.classList.remove('error', 'success');
+                }
+                
+                // Auto-hide error when user types valid password
+                if (errorMessage.classList.contains('show') && value.length >= 6) {
+                    setTimeout(() => {
+                        if (passwordInput.classList.contains('success')) {
+                            hideError();
+                        }
+                    }, 500);
+                }
+            });
+            
+            // Enhanced form submission with success state
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    return;
+                }
+                
+                // Show enhanced loading state
+                loginButton.classList.add('loading');
+                loginButton.disabled = true;
+                hideError();
+                
+                // Simulate API call
+                setTimeout(() => {
+                    const email = emailInput.value.trim();
+                    const password = passwordInput.value.trim();
+                    const rememberMe = document.getElementById('rememberMe').checked;
+                    
+                    // Simulate successful login
+                    if (email === 'demo@dripspace.com' && password === 'demospace') {
+                        // Show success state
+                        form.style.opacity = '0';
+                        form.style.transform = 'translateY(-20px)';
+                        
+                        setTimeout(() => {
+                            form.style.display = 'none';
+                            successState.classList.add('show');
+                        }, 300);
+                        
+                        setTimeout(() => {
+                            console.log('Login successful:', { email, rememberMe });
+                            // Here you would redirect to the dashboard
+                            // window.location.href = '/dashboard';
+                        }, 2500);
+                    } else {
+                        // Reset button and show error
+                        loginButton.classList.remove('loading');
+                        loginButton.disabled = false;
+                        showError('Invalid credentials. Try demo@dripspace.com / demospace');
+                    }
+                }, 2000);
+            });
+            
+            // Enhanced social login handlers
+            document.getElementById('googleLogin').addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<div style="width: 20px; height: 20px; border: 2px solid #4285F4; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div> Connecting...';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    console.log('Google OAuth login initiated');
+                }, 2000);
+            });
+            
+            document.getElementById('appleLogin').addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<div style="width: 20px; height: 20px; border: 2px solid currentColor; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div> Connecting...';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    console.log('Apple ID login initiated');
+                }, 2000);
+            });
+            
+            // Enhanced forgot password functionality
+            document.querySelector('.dripspaceNavbar-forgotPassword').addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = emailInput.value.trim();
+                
+                if (!email || !validateEmail(email)) {
+                    showError('Please enter a valid email address first.');
+                    emailInput.focus();
+                    return;
+                }
+                
+                console.log('Forgot password requested for:', email);
+                showError('Password reset instructions sent to your email.');
+                
+                setTimeout(() => {
+                    hideError();
+                }, 3000);
             });
             
