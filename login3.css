@@ -203,3 +203,32 @@
             transform: translateY(0);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+
+.dripspaceNavbar-formInput {
+            width: 100%;
+            padding: var(--space-md) var(--space-md);
+            border: 2px solid var(--ds-border-subtle);
+            background: var(--ds-bg-surface);
+            color: var(--ds-text-primary);
+            font-size: 16px;
+            font-family: 'Manrope', sans-serif;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-height: 52px;
+            position: relative;
+            font-weight: 400;
+        }
+        
+        .dripspaceNavbar-formInput:focus {
+            outline: none;
+            border-color: var(--ds-accent-gold);
+            box-shadow: 
+                0 0 0 3px rgba(174, 154, 127, 0.1),
+                0 8px 25px rgba(174, 154, 127, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .dripspaceNavbar-formInput:focus + .dripspaceNavbar-formLabel {
+            color: var(--ds-accent-gold);
+            transform: translateY(-2px);
+        }
