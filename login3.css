@@ -89,3 +89,22 @@
             66% { transform: translateY(20px) translateX(-15px); }
             100% { transform: translateY(0px) translateX(0px); }
         }
+
+    /* Main Login Container */
+        .dripspaceNavbar-loginContainer {
+            background: var(--ds-bg-surface);
+            border: 1px solid var(--ds-border-subtle);
+            width: 100%;
+            max-width: 520px;
+            margin: var(--space-sm);
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.02),
+                0 8px 32px rgba(0, 0, 0, 0.04);
+            animation: containerEntrance 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
