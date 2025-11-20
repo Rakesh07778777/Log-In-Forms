@@ -1,0 +1,41 @@
+ /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Manrope:wght@300;400;500;600&display=swap');
+        
+        /* Reset and Base Styles */
+        .dripspaceNavbar-premiumLogin * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* CSS Custom Properties for Design Tokens */
+        .dripspaceNavbar-premiumLogin {
+            --ds-bg-primary: #FDFBF8;
+            --ds-bg-surface: #FFFFFF;
+            --ds-text-primary: #38302C;
+            --ds-text-secondary: #8A7F79;
+            --ds-accent-gold: #AE9A7F;
+            --ds-border-subtle: #EFEBE8;
+            --ds-error: #DC2626;
+            --ds-success: #22C55E;
+            --ds-warning: #F59E0B;
+            --ds-info: #3B82F6;
+            
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            --space-4xl: 128px;
+            
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--ds-bg-primary);
+            color: var(--ds-text-primary);
+            min-height: 100vh;
+            position: relative;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+        
