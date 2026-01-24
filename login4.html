@@ -146,10 +146,25 @@
       </div>
     </div>
 
-    <!-- Right Panel - Decorative Graphics (Hidden on mobile) -->
+    <!-- Right Panel - Decorative Graphics -->
     <div class="dripspace-graphics-panel">
       <div class="graphics-container">
-        <img src="https://raw.githubusercontent.com/Rakesh07778777/Drip-Space/main/image%20copy%2051.png" alt="">
+        <!-- Login Image -->
+        <img 
+          id="loginImage" 
+          src="https://raw.githubusercontent.com/Rakesh07778777/Drip-Space/main/image%20copy%2051.png" 
+          alt="Login" 
+          class="panel-image active"
+        >
+        <!-- Register Image -->
+        <img 
+          id="registerImage" 
+          src="https://images.unsplash.com/photo-1557683316-973673baf926?w=800&h=1200&fit=crop" 
+          alt="Register" 
+          class="panel-image"
+        >
+        <!-- Purple Gradient Overlay -->
+        <div class="purple-overlay"></div>
       </div>
     </div>
   </div>
@@ -163,54 +178,120 @@
     box-sizing: border-box;
   }
 
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
   /* Main Container */
   .dripspace-login-container {
     display: flex;
     min-height: 100vh;
+    width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    /* background: linear-gradient(135deg, #1a0322 0%, #260448 25%, #4a0352 50%, #202020 75%, #050716 100%); */
+    /* background-size: 400% 400%; */
+    /* animation: gradientShift 15s ease infinite; */
     align-items: center;
     justify-content: center;
     padding: 20px;
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Login Box - Contains both form and graphics */
+  /* Animated Background */
+  /* .dripspace-login-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg,
+      rgba(139, 92, 246, 0.1) 90deg,
+      transparent 180deg,
+      rgba(168, 85, 247, 0.1) 270deg,
+      transparent 360deg
+    );
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } */
+
+  /* Login Box */
   .dripspace-login-box {
     display: flex;
     width: 100%;
     max-width: 1100px;
-    height: 90vh;
+    min-height: 600px;
     overflow: hidden;
-    box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2), 0 10px 10px -5px rgba(139, 92, 246, 0.1);
-    background: #ffffff;
-    border-radius: 24px;
+    box-shadow: 
+      0 20px 60px rgba(139, 92, 246, 0.4),
+      0 0 100px rgba(168, 85, 247, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    position: relative;
+    z-index: 1;
   }
 
-  /* Login Form Panel */
+  /* Form Panel */
   .dripspace-form-panel {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
-    transition: opacity 0.3s ease;
+    background: linear-gradient(135deg, rgba(15, 1, 35, 0.9) 0%, rgba(43, 1, 85, 0.9) 100%);
+    transition: opacity 0.4s ease;
+    position: relative;
+    padding: 40px 20px;
+  }
+
+  .dripspace-form-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
   }
 
   .dripspace-form-wrapper {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
+    position: relative;
+    z-index: 2;
   }
 
   /* Welcome Text */
   .dripspace-welcome-title {
-    font-size: 1.4rem;
+    font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
     background-clip: text;
     margin-bottom: 8px;
     text-align: center;
+    animation: titleGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.3)); }
+    50% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6)); }
   }
 
   .dripspace-welcome-subtitle {
@@ -218,6 +299,7 @@
     color: #6b7280;
     margin-bottom: 32px;
     text-align: center;
+    line-height: 1.5;
   }
 
   /* Form Styles */
@@ -232,28 +314,35 @@
   .input-label {
     display: block;
     font-size: 14px;
-    font-weight: 500;
-    color: #1a1a1a;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 8px;
   }
 
   .required-asterisk {
-    color: #8b5cf6;
+    color: #ec4899;
   }
 
   .form-input-field {
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 18px;
     font-size: 14px;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    border-radius: 16px;
     outline: none;
+    border: none;
     transition: all 0.3s ease;
+    color: #000000;
   }
 
   .form-input-field:focus {
-    border-color: #8b5cf6;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background: linear-gradient(rgb(200, 200, 200), rgb(231, 231, 231)) padding-box,
+                linear-gradient(135deg, #000000, #000000, #000000) border-box;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1),
+                0 8px 24px rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
   }
 
   .form-input-field::placeholder {
@@ -270,19 +359,21 @@
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
     border: none;
-    color: #9ca3af;
+    color: rgb(3, 3, 3);
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.3s ease;
   }
 
   .password-toggle-btn:hover {
-    color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    background: #fff;
   }
 
   /* Form Options Row */
@@ -291,6 +382,8 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 
   .remember-checkbox-wrapper {
@@ -300,8 +393,8 @@
   }
 
   .checkbox-input {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     margin-right: 8px;
     cursor: pointer;
     accent-color: #8b5cf6;
@@ -310,41 +403,64 @@
   .checkbox-label {
     font-size: 14px;
     color: #4b5563;
+    font-weight: 500;
   }
 
   .forgot-password-link {
     font-size: 14px;
-    color: #8b5cf6;
+    color: #bfbfbf;
+    background-clip: text;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
   .forgot-password-link:hover {
-    color: #7c3aed;
+    filter: brightness(1.2);
+    text-decoration: underline;
   }
 
   /* Login Button */
   .premium-login-btn {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     font-size: 16px;
     font-weight: 600;
     color: #ffffff;
-    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    background: #2E003E;
+    background-size: 200% 200%;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .premium-login-btn:hover::before {
+    left: 100%;
   }
 
   .premium-login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+    background-position: 100% 0;
   }
 
   .premium-login-btn:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
   /* Divider */
@@ -360,8 +476,8 @@
     left: 0;
     top: 50%;
     width: 100%;
-    height: 1px;
-    background: #e5e7eb;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
   }
 
   .divider-text {
@@ -370,19 +486,20 @@
     padding: 0 16px;
     font-size: 14px;
     color: #9ca3af;
-    background: #ffffff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.9) 100%);
+    font-weight: 500;
   }
 
   /* Google Sign In Button */
   .google-signin-btn {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     font-size: 14px;
     font-weight: 500;
     color: #1a1a1a;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    background: white;
+    border: none;
+    border-radius: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -393,8 +510,7 @@
   }
 
   .google-signin-btn:hover {
-    background: #f9fafb;
-    border-color: #8b5cf6;
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
   }
 
   /* Social Buttons Container */
@@ -406,13 +522,13 @@
 
   .social-signin-btn {
     flex: 1;
-    padding: 12px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 14px 8px;
+    font-size: 13px;
+    font-weight: 600;
     color: #1a1a1a;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+    background: white;
+    border: none;
+    border-radius: 16px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -423,20 +539,8 @@
   }
 
   .social-signin-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
-  }
-
-  .google-btn:hover {
-    border-color: #4285F4;
-  }
-
-  .linkedin-btn:hover {
-    border-color: #0A66C2;
-  }
-
-  .github-btn:hover {
-    border-color: #181717;
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    background: #cab4f8;
   }
 
   /* Register Link */
@@ -444,27 +548,30 @@
     text-align: center;
     font-size: 14px;
     color: #6b7280;
+    line-height: 1.6;
   }
 
   .register-link {
-    color: #8b5cf6;
+    color: #fff;
+    background-clip: text;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
   .register-link:hover {
-    color: #7c3aed;
+    filter: brightness(1.2);
+    text-decoration: underline;
   }
 
   /* Right Panel - Graphics Section */
   .dripspace-graphics-panel {
     flex: 1;
-    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 50%, #7c3aed 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #6366f1 100%);
     position: relative;
     overflow: hidden;
-    border-top-right-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
   }
 
   .graphics-container {
@@ -473,44 +580,90 @@
     height: 100%;
   }
 
-  .graphics-container img {
-    height: 100%;
+  .panel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 
-  /* Responsive Design - Mobile First */
+  .panel-image.active {
+    opacity: 1;
+  }
+
+  .purple-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(BG-Images/joanna-kosinska-RE-8WswW95o-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    mix-blend-mode: multiply;
+    z-index: 1;
+  }
+
+  /* ============================================ */
+  /* RESPONSIVE DESIGN - TABLETS AND MOBILE */
+  /* ============================================ */
+
+  /* Large Tablets and Small Desktops (1024px and below) */
   @media (max-width: 1024px) {
     .dripspace-login-box {
       max-width: 900px;
-      height: 600px;
+      min-height: 550px;
+    }
+
+    .dripspace-welcome-title {
+      font-size: 1.75rem;
+    }
+
+    .dripspace-form-wrapper {
+      max-width: 380px;
     }
   }
 
+  /* Tablets (768px and below) */
   @media (max-width: 768px) {
+    .dripspace-login-container {
+      padding: 15px;
+    }
+
     .dripspace-login-box {
-      max-width: 700px;
-      height: 500px;
+      flex-direction: column;
+      max-width: 100%;
+      min-height: auto;
+      border-radius: 24px;
+    }
+
+    .dripspace-form-panel {
+      padding: 40px 30px;
     }
     
+    .dripspace-form-wrapper {
+      max-width: 100%;
+    }
+
     .dripspace-welcome-title {
-      font-size: 28px;
+      font-size: 1.65rem;
     }
 
-    .form-input-field {
-      width: 80%;
+    .dripspace-welcome-subtitle {
+      font-size: 13px;
+      margin-bottom: 28px;
     }
 
-    .premium-login-btn {
-      width: 80%;
-      padding: 12px;
-    }
-
+    /* Hide graphics panel on tablets */
     .dripspace-graphics-panel {
       display: none;
     }
 
+    /* Social buttons stack on tablets */
     .social-buttons-container {
       flex-direction: column;
     }
@@ -518,128 +671,346 @@
     .social-signin-btn {
       flex-direction: row;
       gap: 12px;
+      padding: 14px 16px;
+    }
+
+    .form-input-field {
+      padding: 13px 16px;
+    }
+
+    .premium-login-btn {
+      padding: 15px;
     }
   }
 
+  /* Mobile Landscape and Small Tablets (600px and below) */
   @media (max-width: 600px) {
     .dripspace-login-container {
-      padding: 0;
-      background: #ffffff;
+      padding: 10px;
       align-items: flex-start;
     }
     
     .dripspace-login-box {
-      flex-direction: column;
-      height: auto;
-      max-width: 100%;
-      box-shadow: none;
-      border-radius: 0;
-      background: #ffffff;
+      border-radius: 20px;
+      min-height: auto;
+      margin: 10px 0;
     }
     
     .dripspace-form-panel {
       padding: 30px 20px;
-      width: 100%;
-      flex: none;
     }
     
     .dripspace-form-wrapper {
-      padding: 20px;
       max-width: 100%;
-    }
-    
-    .dripspace-graphics-panel {
-      display: none !important;
+      padding: 0;
     }
     
     .dripspace-welcome-title {
-      font-size: 26px;
+      font-size: 1.5rem;
     }
     
     .dripspace-welcome-subtitle {
       font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .login-input-block {
+      margin-bottom: 1rem;
+    }
+
+    .input-label {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .form-input-field {
+      padding: 12px 14px;
+      font-size: 14px;
+      border-radius: 14px;
+    }
+
+    .password-toggle-btn {
+      padding: 6px;
+      right: 10px;
+    }
+
+    .password-toggle-btn svg {
+      width: 18px;
+      height: 18px;
     }
     
     .form-options-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 20px;
     }
-    
+
+    .checkbox-input {
+      width: 16px;
+      height: 16px;
+    }
+
+    .checkbox-label {
+      font-size: 13px;
+    }
+
     .forgot-password-link {
-      align-self: flex-end;
+      font-size: 13px;
     }
     
     .premium-login-btn {
-      padding: 12px;
+      padding: 14px;
       font-size: 15px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+
+    .login-divider {
+      margin-bottom: 20px;
+    }
+
+    .divider-text {
+      font-size: 13px;
+      padding: 0 12px;
+    }
+
+    .google-signin-btn {
+      padding: 13px;
+      font-size: 13px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+    }
+
+    .google-signin-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .social-buttons-container {
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .social-signin-btn {
+      padding: 13px 12px;
+      font-size: 12px;
+      border-radius: 14px;
+    }
+
+    .social-signin-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .register-link-text {
+      font-size: 13px;
     }
   }
 
+  /* Mobile Portrait (480px and below) */
   @media (max-width: 480px) {
     .dripspace-login-container {
-      padding: 0;
+      padding: 5px;
+    }
+
+    .dripspace-login-box {
+      border-radius: 16px;
+      margin: 5px 0;
     }
     
     .dripspace-form-panel {
-      padding: 25px 15px;
-    }
-    
-    .dripspace-form-wrapper {
-      padding: 15px;
+      padding: 25px 16px;
     }
     
     .dripspace-welcome-title {
-      font-size: 24px;
+      font-size: 1.35rem;
     }
     
     .dripspace-welcome-subtitle {
       font-size: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    
+
+    .login-input-block {
+      margin-bottom: 0.9rem;
+    }
+
     .input-label {
-      font-size: 13px;
+      font-size: 12px;
     }
     
     .form-input-field {
-      padding: 10px 14px;
+      padding: 11px 13px;
       font-size: 13px;
+      border-radius: 12px;
+    }
+
+    .password-toggle-btn {
+      padding: 5px;
     }
     
     .premium-login-btn {
-      padding: 12px;
+      padding: 13px;
       font-size: 14px;
+      border-radius: 12px;
+      margin-bottom: 18px;
     }
     
     .google-signin-btn {
-      padding: 10px;
-      font-size: 13px;
+      padding: 12px;
+      font-size: 12px;
+      border-radius: 12px;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .social-buttons-container {
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .social-signin-btn {
+      padding: 12px 10px;
+      font-size: 11px;
+      border-radius: 12px;
+      gap: 6px;
     }
     
     .register-link-text {
+      font-size: 12px;
+    }
+
+    .form-options-row {
+      margin-bottom: 18px;
+    }
+
+    .checkbox-label,
+    .forgot-password-link {
+      font-size: 12px;
+    }
+  }
+
+  /* Extra Small Mobile (360px and below) */
+  @media (max-width: 360px) {
+    .dripspace-login-container {
+      padding: 3px;
+    }
+
+    .dripspace-form-panel {
+      padding: 20px 12px;
+    }
+    
+    .dripspace-welcome-title {
+      font-size: 1.25rem;
+    }
+    
+    .dripspace-welcome-subtitle {
+      font-size: 11px;
+    }
+
+    .form-input-field {
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+
+    .premium-login-btn {
+      padding: 12px;
       font-size: 13px;
+    }
+
+    .google-signin-btn {
+      padding: 11px;
+      font-size: 11px;
+    }
+
+    .social-signin-btn {
+      padding: 11px 8px;
+      font-size: 10px;
+    }
+  }
+
+  /* Landscape orientation adjustments */
+  @media (max-height: 600px) and (orientation: landscape) {
+    .dripspace-login-container {
+      padding: 10px;
+      align-items: flex-start;
+    }
+
+    .dripspace-login-box {
+      min-height: auto;
+      margin: 10px auto;
+    }
+
+    .dripspace-form-panel {
+      padding: 20px 30px;
+    }
+
+    .dripspace-welcome-title {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .dripspace-welcome-subtitle {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .login-input-block {
+      margin-bottom: 0.8rem;
+    }
+
+    .form-options-row {
+      margin-bottom: 16px;
+    }
+
+    .premium-login-btn {
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .login-divider {
+      margin-bottom: 16px;
+    }
+
+    .google-signin-btn {
+      padding: 11px;
+      margin-bottom: 16px;
+    }
+
+    .social-buttons-container {
+      margin-bottom: 16px;
     }
   }
 </style>
 
 <script>
-  // Toggle between login and register forms
+  // Toggle between login and register forms with image change
   const loginPanel = document.getElementById('loginPanel');
   const registerPanel = document.getElementById('registerPanel');
   const showRegisterBtn = document.getElementById('showRegister');
   const showLoginBtn = document.getElementById('showLogin');
+  const loginImage = document.getElementById('loginImage');
+  const registerImage = document.getElementById('registerImage');
 
   showRegisterBtn.addEventListener('click', function(e) {
     e.preventDefault();
     loginPanel.style.display = 'none';
     registerPanel.style.display = 'flex';
+    
+    // Change image
+    loginImage.classList.remove('active');
+    registerImage.classList.add('active');
   });
 
   showLoginBtn.addEventListener('click', function(e) {
     e.preventDefault();
     registerPanel.style.display = 'none';
     loginPanel.style.display = 'flex';
+    
+    // Change image
+    registerImage.classList.remove('active');
+    loginImage.classList.add('active');
   });
 
   // Password Toggle Functionality for Login
@@ -649,7 +1020,6 @@
   togglePassword.addEventListener('click', function() {
     const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     passwordInput.setAttribute('type', type);
-    this.style.color = type === 'text' ? '#8b5cf6' : '#9ca3af';
   });
 
   // Password Toggle Functionality for Registration
@@ -659,7 +1029,6 @@
   toggleRegPassword.addEventListener('click', function() {
     const type = regPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
     regPasswordInput.setAttribute('type', type);
-    this.style.color = type === 'text' ? '#8b5cf6' : '#9ca3af';
   });
 
   // Login Form Validation
@@ -683,7 +1052,7 @@
     }
     
     console.log('Login attempt:', { email, password: '***' });
-    alert('Login functionality would be connected to backend here!');
+    alert('Login successful! This would connect to your backend.');
   });
 
   // Registration Form Validation
@@ -713,7 +1082,7 @@
     }
     
     console.log('Registration attempt:', { name, email, password: '***' });
-    alert('Registration functionality would be connected to backend here!');
+    alert('Registration successful! This would connect to your backend.');
   });
 
   // Add focus effects to inputs
@@ -721,12 +1090,16 @@
   
   inputs.forEach(input => {
     input.addEventListener('focus', function() {
-      this.parentElement.style.transform = 'scale(1.01)';
-      this.parentElement.style.transition = 'transform 0.3s ease';
+      this.style.transition = 'all 0.3s ease';
     });
-    
-    input.addEventListener('blur', function() {
-      this.parentElement.style.transform = 'scale(1)';
+  });
+
+  // Prevent form submission on enter in social buttons
+  document.querySelectorAll('.social-signin-btn, .google-signin-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Social login clicked:', this.querySelector('span').textContent);
+      alert('Social login would be handled here!');
     });
   });
 </script>
